@@ -31,5 +31,25 @@ namespace TicTacToeGameNew
             Console.WriteLine("\n" + board[7] + " | " + board[8] + " | " + board[9]);
         }
 
+        public void PlayerMove(char letter)
+        {
+            Console.WriteLine("Enter position index");
+            int position = Convert.ToInt32(Console.ReadLine());
+            if (position < 1 || position > 9)
+            {
+                Console.WriteLine("Invalid index");
+                PlayerMove(letter);
+            }
+            else if (board[position] == ' ')
+            {
+                board[position] = letter;
+            }
+            else
+            {
+                Console.WriteLine("The position is already filled");
+                PlayerMove(letter);
+            }
+        }
+
     }
 }
